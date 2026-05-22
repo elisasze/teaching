@@ -4,113 +4,135 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Teaching and Training Samples — Elisa Sze</title>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --cream: #FFFFFF;
+      --bg: #FFFFFF;
       --ink: #0A0A0A;
-      --ink-muted: #3D3D3D;
-      --ink-faint: #6B6B6B;
+      --ink-muted: #444444;
+      --ink-faint: #767676;
       --accent: #005A9C;
-      --accent-light: #D6E8F7;
-      --accent-active: #003F70;
-      --border: rgba(0,0,0,0.18);
-      --serif: 'DM Serif Display', Georgia, serif;
-      --sans: 'DM Sans', system-ui, sans-serif;
+      --accent-light: #E0EEF8;
+      --accent-dark: #003F70;
+      --border: #E2E2E2;
+      --card-bg: #F9F9F9;
+      --font: 'Inter', system-ui, -apple-system, sans-serif;
+      --max-w: 960px;
+      --radius: 8px;
     }
 
+    html { scroll-behavior: smooth; }
+
     body {
-      background: var(--cream);
+      background: var(--bg);
       color: var(--ink);
-      font-family: var(--sans);
-      font-weight: 300;
+      font-family: var(--font);
+      font-weight: 400;
+      font-size: 16px;
       line-height: 1.7;
       min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Layout wrapper ── */
+    .wrap {
+      width: 100%;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 2rem;
     }
 
     /* ── Header ── */
     header {
       border-bottom: 1px solid var(--border);
-      padding: 3rem 2rem 2.5rem;
-      max-width: 900px;
-      margin: 0 auto;
+      padding: 3.5rem 0 2.5rem;
     }
 
     .eyebrow {
-      font-size: 0.72rem;
-      font-weight: 500;
-      letter-spacing: 0.14em;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--accent);
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.9rem;
     }
 
     h1 {
-      font-family: var(--serif);
-      font-size: clamp(2.2rem, 5vw, 3.4rem);
-      font-weight: 400;
+      font-size: clamp(1.9rem, 4.5vw, 3rem);
+      font-weight: 600;
       line-height: 1.15;
-      letter-spacing: -0.01em;
+      letter-spacing: -0.03em;
+      color: var(--ink);
       margin-bottom: 1rem;
     }
 
-    h1 em {
-      font-style: italic;
-      color: var(--accent);
-    }
-
     .author-line {
-      font-size: 0.95rem;
-      color: var(--ink-muted);
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: var(--ink-faint);
       display: flex;
       align-items: center;
-      gap: 0.6rem;
+      gap: 0.75rem;
     }
 
     .author-line::before {
       content: '';
-      display: inline-block;
-      width: 24px;
+      width: 20px;
       height: 1px;
-      background: var(--ink-faint);
+      background: var(--border);
+      flex-shrink: 0;
     }
 
     /* ── Nav ── */
     nav {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 1.25rem 2rem;
-      display: flex;
-      gap: 2rem;
       border-bottom: 1px solid var(--border);
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+
+    nav::-webkit-scrollbar { display: none; }
+
+    .nav-inner {
+      display: flex;
+      gap: 0;
+      white-space: nowrap;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 2rem;
     }
 
     nav a {
-      font-size: 0.85rem;
+      display: inline-block;
+      font-size: 0.82rem;
       font-weight: 400;
-      color: var(--ink-muted);
+      color: var(--ink-faint);
       text-decoration: none;
-      letter-spacing: 0.02em;
-      transition: color 0.2s;
+      padding: 1rem 1.1rem;
+      border-bottom: 2px solid transparent;
+      transition: color 0.15s, border-color 0.15s;
     }
 
+    nav a:first-child { padding-left: 0; }
     nav a:hover { color: var(--ink); }
-    nav a.active { color: var(--accent-active); font-weight: 500; text-decoration: underline; text-underline-offset: 3px; }
-
-    /* ── Main layout ── */
-    main {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 3rem 2rem 6rem;
+    nav a.active {
+      color: var(--accent-dark);
+      font-weight: 500;
+      border-bottom-color: var(--accent-dark);
     }
 
-    /* ── Section headings ── */
+    /* ── Main ── */
+    main {
+      padding: 3.5rem 0 6rem;
+    }
+
+    /* ── Section label ── */
     .section-label {
-      font-size: 0.72rem;
-      font-weight: 500;
-      letter-spacing: 0.14em;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
       color: var(--ink-faint);
       margin-bottom: 1.5rem;
@@ -118,220 +140,256 @@
       border-bottom: 1px solid var(--border);
     }
 
-    /* ── Cards ── */
+    /* ── Card grid ── */
     .card-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 1.25rem;
-      margin-bottom: 3.5rem;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 1rem;
+      margin-bottom: 4rem;
     }
 
     .card {
-      background: #fff;
+      background: var(--card-bg);
       border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 1.5rem 1.5rem 1.75rem;
-      text-decoration: none;
-      color: inherit;
+      border-radius: var(--radius);
+      padding: 1.5rem;
       display: flex;
       flex-direction: column;
-      gap: 0.6rem;
-      transition: border-color 0.2s, transform 0.2s;
-      cursor: pointer;
+      gap: 0.5rem;
+      transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+      cursor: default;
     }
 
     .card:hover {
       border-color: var(--accent);
+      box-shadow: 0 4px 16px rgba(0,90,156,0.08);
       transform: translateY(-2px);
     }
 
     .card-tag {
-      font-size: 0.68rem;
-      font-weight: 500;
+      font-size: 0.65rem;
+      font-weight: 600;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--accent);
+      color: var(--accent-dark);
       background: var(--accent-light);
       display: inline-block;
-      padding: 0.2em 0.65em;
-      border-radius: 3px;
-      margin-bottom: 0.25rem;
+      padding: 0.25em 0.6em;
+      border-radius: 4px;
       align-self: flex-start;
+      margin-bottom: 0.25rem;
     }
 
     .card h3 {
-      font-family: var(--serif);
-      font-size: 1.1rem;
-      font-weight: 400;
-      line-height: 1.3;
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1.35;
+      color: var(--ink);
     }
 
     .card p {
-      font-size: 0.87rem;
+      font-size: 0.85rem;
       color: var(--ink-muted);
       line-height: 1.6;
+      flex: 1;
     }
 
     .card-meta {
-      margin-top: auto;
-      padding-top: 0.75rem;
-      font-size: 0.75rem;
-      color: var(--ink-faint);
       display: flex;
       gap: 1rem;
-    }
-
-    /* ── About strip ── */
-    .about-strip {
+      padding-top: 0.75rem;
+      margin-top: auto;
+      font-size: 0.72rem;
+      color: var(--ink-faint);
       border-top: 1px solid var(--border);
-      padding-top: 2.5rem;
+    }
+
+    /* ── Content sections (Teaching Philosophy, About) ── */
+    .content-section {
       display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 2.5rem;
+      grid-template-columns: 200px 1fr;
+      gap: 3rem;
       align-items: start;
+      padding: 3rem 0;
+      border-top: 1px solid var(--border);
     }
 
-    .about-strip h2 {
-      font-family: var(--serif);
-      font-size: 1.6rem;
-      font-weight: 400;
-      line-height: 1.2;
+    .content-section + .content-section {
+      margin-top: 0;
     }
 
-    .about-strip p {
+    .section-heading {
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      padding-top: 0.2rem;
+      position: sticky;
+      top: 1.5rem;
+    }
+
+    .section-body p {
       font-size: 0.93rem;
       color: var(--ink-muted);
       margin-bottom: 1rem;
+      max-width: 62ch;
     }
 
+    .section-body p:last-of-type { margin-bottom: 1.25rem; }
+
     .contact-link {
-      font-size: 0.85rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.82rem;
       font-weight: 500;
-      color: var(--accent);
+      color: var(--accent-dark);
       text-decoration: none;
-      border-bottom: 1px solid var(--accent);
+      border-bottom: 1px solid currentColor;
       padding-bottom: 1px;
       transition: opacity 0.2s;
     }
 
-    .contact-link:hover { opacity: 0.7; }
+    .contact-link:hover { opacity: 0.65; }
 
     /* ── Footer ── */
     footer {
       border-top: 1px solid var(--border);
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 1.5rem 2rem;
+      padding: 1.5rem 0;
+    }
+
+    .footer-inner {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 0.78rem;
+      font-size: 0.75rem;
       color: var(--ink-faint);
     }
 
     /* ── Responsive ── */
-    @media (max-width: 600px) {
-      header, nav, main, footer { padding-left: 1.25rem; padding-right: 1.25rem; }
-      .about-strip { grid-template-columns: 1fr; }
-      nav { gap: 1.25rem; flex-wrap: wrap; }
+    @media (max-width: 700px) {
+      .wrap { padding: 0 1.25rem; }
+      .nav-inner { padding: 0 1.25rem; }
+      h1 { font-size: clamp(1.6rem, 6vw, 2.2rem); }
+
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .content-section {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 2rem 0;
+      }
+
+      .section-heading {
+        position: static;
+        font-size: 0.72rem;
+        color: var(--accent-dark);
+      }
+    }
+
+    @media (max-width: 480px) {
+      header { padding-top: 2.5rem; }
+      main { padding-top: 2.5rem; }
+      .footer-inner { flex-direction: column; gap: 0.25rem; text-align: center; }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <p class="eyebrow">Portfolio</p>
-    <h1>Teaching &amp; <em>Training</em> Samples</h1>
-    <p class="author-line">Elisa Sze</p>
+    <div class="wrap">
+      <p class="eyebrow">Portfolio</p>
+      <h1>Teaching &amp; Training Samples</h1>
+      <p class="author-line">Elisa Sze</p>
+    </div>
   </header>
 
   <nav>
-    <a href="#" class="active">All</a>
-    <a href="#">Cataloguing Workshops</a>
-    <a href="#">Classification Workshops</a>
-    <a href="#">Other Workshops</a>
-    <a href="#">LIS Education</a>
-    <a href="#">Publications</a>
-    <a href="#">About</a>
+    <div class="nav-inner">
+      <a href="#" class="active">All</a>
+      <a href="#">Cataloguing Workshops</a>
+      <a href="#">Classification Workshops</a>
+      <a href="#">Other Workshops</a>
+      <a href="#">LIS Education</a>
+      <a href="#">Publications</a>
+      <a href="#teaching-philosophy">Teaching Philosophy</a>
+      <a href="#about">About</a>
+    </div>
   </nav>
 
   <main>
+    <div class="wrap">
 
-    <p class="section-label">Workshops &amp; sessions</p>
-    <div class="card-grid">
+      <p class="section-label">Workshops &amp; sessions</p>
+      <div class="card-grid">
 
-      <div class="card">
-        <span class="card-tag">Workshop</span>
-        <h3>Introduction to Academic Writing</h3>
-        <p>A structured session helping undergraduates develop clear, evidence-based arguments.</p>
-        <div class="card-meta">
-          <span>90 min</span>
-          <span>Undergrad</span>
+        <div class="card">
+          <span class="card-tag">Workshop</span>
+          <h3>Introduction to RDA</h3>
+          <p>20-minute webinar presentation</p>
+          <div class="card-meta">
+            <span>20 min</span>
+            <span>Webinar</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="card-tag">Workshop</span>
+          <h3>Introduction to Using RDA Toolkit</h3>
+          <p>40-minute webinar presentation</p>
+          <div class="card-meta">
+            <span>40 min</span>
+            <span>Webinar</span>
+          </div>
+        </div>
+
+      </div>
+
+      <p class="section-label">Curriculum &amp; materials</p>
+      <div class="card-grid">
+
+        <div class="card">
+          <span class="card-tag">Curriculum</span>
+          <h3>RDA Lessons for an ALA-Accredited Master's Course</h3>
+          <p>Course materials developed for a graduate-level cataloguing module in an ALA-accredited program.</p>
+          <div class="card-meta">
+            <span>Graduate</span>
+            <span>Curriculum</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="teaching-philosophy" class="content-section">
+        <p class="section-heading">Teaching Philosophy</p>
+        <div class="section-body">
+          <p style="font-style: italic; color: var(--ink-faint);">[Your teaching philosophy text goes here. Paste or type your content to replace this placeholder.]</p>
         </div>
       </div>
 
-      <div class="card">
-        <span class="card-tag">Seminar</span>
-        <h3>Critical Reading Strategies</h3>
-        <p>Techniques for engaging with complex texts across disciplines.</p>
-        <div class="card-meta">
-          <span>60 min</span>
-          <span>Graduate</span>
-        </div>
-      </div>
-
-      <div class="card">
-        <span class="card-tag">Training</span>
-        <h3>Facilitating Discussion in the Classroom</h3>
-        <p>Professional development for new instructors on managing inclusive dialogue.</p>
-        <div class="card-meta">
-          <span>2 hrs</span>
-          <span>Instructors</span>
+      <div id="about" class="content-section">
+        <p class="section-heading">About Elisa</p>
+        <div class="section-body">
+          <p>Elisa Sze is a metadata librarian at the University of Toronto Libraries (UTL). Prior to joining UTL, she was the collections and public services librarian at the University of Toronto's Faculty of Information (iSchool). She continues her connection with the iSchool as a sessional lecturer. Elisa has co-authored peer-reviewed articles on cataloguing, and her current research interests are in technical services management and Canadian library history.</p>
+          <p>Elisa holds a Master of Information Studies and Honours Bachelor of Arts (joint specialist in history and political science) from the University of Toronto, and an ARCT diploma in piano performance from the Royal Conservatory of Music (Toronto).</p>
+          <p>In her spare time, she likes making and thinking about paper and textile crafts.</p>
+          <a href="mailto:elisa@example.com" class="contact-link">Get in touch</a>
         </div>
       </div>
 
     </div>
-
-    <p class="section-label">Curriculum &amp; materials</p>
-    <div class="card-grid">
-
-      <div class="card">
-        <span class="card-tag">Curriculum</span>
-        <h3>Writing Across the Disciplines</h3>
-        <p>A 12-week module designed for interdisciplinary writing courses.</p>
-        <div class="card-meta">
-          <span>12 weeks</span>
-          <span>All levels</span>
-        </div>
-      </div>
-
-      <div class="card">
-        <span class="card-tag">Resource</span>
-        <h3>Annotated Bibliography Guide</h3>
-        <p>Step-by-step handout with annotated examples across APA, MLA, and Chicago.</p>
-        <div class="card-meta">
-          <span>Reference</span>
-          <span>Undergrad</span>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="about-strip">
-      <h2>About Elisa</h2>
-      <div>
-        <p>Elisa Sze is a metadata librarian at the University of Toronto Libraries (UTL). Prior to joining UTL, she was the collections and public services librarian at the University of Toronto's Faculty of Information (iSchool). She continues her connection with the iSchool as a sessional lecturer. Elisa has co-authored peer-reviewed articles on cataloguing, and her current research interests are in technical services management and Canadian library history.</p>
-        <p>Elisa holds a Master of Information Studies and Honours Bachelor of Arts (joint specialist in history and political science) from the University of Toronto, and an ARCT diploma in piano performance from the Royal Conservatory of Music (Toronto).</p>
-        <p>In her spare time, she likes making and thinking about paper and textile crafts.</p>
-        <a href="mailto:elisa@example.com" class="contact-link">Get in touch</a>
-      </div>
-    </div>
-
   </main>
 
   <footer>
-    <span>Elisa Sze</span>
-    <span>&copy; 2025</span>
+    <div class="wrap">
+      <div class="footer-inner">
+        <span>Elisa Sze</span>
+        <span>&copy; 2026</span>
+      </div>
+    </div>
   </footer>
 
 </body>
